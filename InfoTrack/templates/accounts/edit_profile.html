@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+
+{% block keng_1 %}
+<div class = "container" style="margin-top:150px">
+<p style=font-size:30px>Edit Your Profile</p>
+<form method = "POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type = 'submit'class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+{% endblock %}

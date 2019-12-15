@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>InfoTrack</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- {% if user.is_authenticated %}{% else %}{% endif %}  -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/home.css">
+  </head>
+  <body>
+
+{% if user.is_authenticated %}        
+    <nav> 
+        <a href=" " class="nav-toggle-btn">
+        <img src="../static/css/tim-face.jpg" style="width: 50px; height: 50px">
+        </a >
+        
+        <ul>
+        <li><a href="{% url 'InfoTrack:homepage' %}">Home</a ></li>
+        <li><a href="{% url 'InfoTrack:clubinfo' %}">Club Info</a ></li>
+        <li><a href="{% url 'InfoTrack:courseinfo' %}">Recommand Class</a ></li>
+        <li><a href="{% url 'InfoTrack:privatetutor' %}">Private Tutor</a ></li>
+        <li><a href="{% url 'InfoTrack:rentinfo' %}">Rent Info</a ></li>
+        <li><a href="{% url 'InfoTrack:freeride' %}">Free Ride</a ></li>
+        </ul>
+
+        </nav>
+        <h1>                
+        <button type="button" class="btn btn-info"><a href="{% url 'InfoTrack:logout' %}">Logout</a></button> 
+        </h1>
+
+    {% else %}
+    <nav>               
+            <a href="#" class="nav-toggle-btn">
+                <div class="nav-btn-block top"></div>
+                <div class="nav-btn-block middle"></div>
+                <div class="nav-btn-block bottom"></div>
+            </a>
+
+            <ul>
+                <li><a href="{% url 'InfoTrack:homepage' %}">Home</a></li>
+                <li><a href="{% url 'InfoTrack:clubinfo' %}">Club Info</a></li>
+                <li><a href="{% url 'InfoTrack:courseinfo' %}">Recommand Class</a></li>
+                <li><a href="{% url 'InfoTrack:privatetutor' %}">Private Tutor</a></li>
+                <li><a href="{% url 'InfoTrack:rentinfo' %}">Rent Info</a></li>
+                <li><a href="{% url 'InfoTrack:freeride' %}">Free Ride</a></li>
+            </ul>
+        </nav>
+
+        <h1>
+                <button type="button" class="btn btn-info"><a href="{% url 'InfoTrack:login' %}">Login</a></button>
+                <button type="button" class="btn btn-info"><a href="{% url 'InfoTrack:register' %}">Register</a></button>
+                <button type="button" class="btn btn-info"><a href="{% url 'InfoTrack:reset_password' %}">Reset Passowrd</a></button>                
+            </h1>
+    
+    {% endif %}
+    
+    
+    <ul class="fly-in-text hidden">
+
+        <h2>Welcome to Umass InfoTrack</h2>
+        <br>
+        <li>I</li>
+        <li>n</li>
+        <li>f</li>
+        <li>o</li>
+        <li>T</li>
+        <li>r</li>
+        <li>a</li>
+        <li>c</li>
+        <li>k</li>
+
+    </ul>
+
+    <footer>@ShootA</footer>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    
+        (function() {
+            var bodyEl = $('body'),
+                navToggleBtn = bodyEl.find('.nav-toggle-btn');
+
+            navToggleBtn.on('click', function(e) {
+                bodyEl.toggleClass('active-nav'); 
+                e.preventDefault();
+            });
+        })();
+
+        (function() {
+            var navBtn = $('a.nav-toggle-btn'),
+                navBtnBlock = navBtn.find('div.nav-btn-block');
+
+            navBtn.on('click', function() {
+                navBtnBlock.toggleClass('active');
+            });
+        })();
+
+        $(function() {
+            setTimeout(function() {
+                $('.fly-in-text').removeClass('hidden');
+            }, 500);
+        })();
+
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,80 @@
+{% extends 'base_generic.html' %}
+
+{% block keng_1 %}
+<div class="container"  style="margin-top:50px;">
+    {% if post.time %}
+            <div class="date">
+                {{ post.time }}
+            </div>
+        {% endif %}
+      <br>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.context }}</p >
+        <p>Cateloge: {{ post.PostType }}</p >
+        <p>POSTED BY {{ post.user.get_full_name }}</p>
+        <p>
+          {% block keng_2%}
+          {% if post.image %}        
+          <img src="{{ post.image.url }}" width="240">
+          {% endif %}     
+          {% endblock %}
+        </p>
+      <br>
+    <a class="btn btn-lg btn-secondary" href=" {%url 'InfoTrack:add_comment' pk=post.pk%}" role="button">Add Comment </a >
+    <br>
+<div class="row">
+<!-- Contenedor Principal -->
+<h3> Comments: </h3>
+
+<div class="comments-container">
+  {% for comment in comments %}
+  <ul id="comments-list" class="comments-list">
+  <li>
+    <div class="comment-main-level">
+      <!-- Contenedor del Comentario -->
+      <div class="comment-box">
+        <div class="comment-head" >
+          <h6 class="comment-name by-author">{{ comment.user.get_full_name}}</h6>
+          <span>  {{ comment.time}} </span>
+          <i class="fa fa-reply"></i>
+        </div>
+        <div class="comment-content">
+            {{ comment.context}}
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+{% endfor %}
+
+{% if comments.has_other_pages %}
+  <ul class="pagination">
+    {% if comments.has_previous %}
+      <li><a href="?page={{ comments.previous_page_number }}">&raquo;</a ></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in comments.paginator.page_range %}
+      {% if comments.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a ></li>
+      {% endif %}
+    {% endfor %}
+    {% if comments.has_next %}
+      <li><a href="?page={{ comments.next_page_number }}">&raquo;</a ></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+
+
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}

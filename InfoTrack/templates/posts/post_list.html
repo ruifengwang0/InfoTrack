@@ -1,0 +1,78 @@
+{% extends "base_generic.html"%}
+
+{% block keng_1 %}
+<div align = "left">
+  <br>
+
+<h1>POST LIST : </h1>
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+          <h1></h1>
+      </div>
+  </div>
+  
+  <div class="container">
+      <h1>Search for post</h1>
+      <form action="{% url 'InfoTrack:post_search' %}" method="get" accept-charset="utf-8" class="search-form">
+      <div class="input-group input-group-lg">
+      <input type="text" class="form-control" name="search_box" id="search_box" placeholder="Search">
+      <div class="input-group-btn">
+      <button class="btn btn-default" type="submit" id="search_box"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+      </div>
+      </form>
+      </div>
+
+<div class="container">  
+{% for post in posts %}
+        <h3><a href="{% url 'InfoTrack:post_detail' pk=post.pk %}"> {{ post.title }}</a></h3>
+        <p> {{ post.context|linebreaksbr }}</p>
+        <P>POSTED BY {{ post.user.get_full_name }} ({{ post.time }})</P>
+        <br>
+{% endfor %}
+
+{% if posts.has_other_pages %}
+  <ul class="pagination">
+    {% if posts.has_previous %}
+      <li><a href="?page={{ posts.previous_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in posts.paginator.page_range %}
+      {% if posts.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if posts.has_next %}
+      <li><a href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+  </div>
+{% endif %}
+
+
+<!--
+
+</div>
+<div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}">PREVIOUS</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">NEXT</a>
+        {% endif %}
+    </span>
+</div>
+-->
+{% endblock %}

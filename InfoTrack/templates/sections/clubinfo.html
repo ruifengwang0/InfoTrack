@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+<!-- the posts  -->
+<!-- title, time, context, content -->
+{%block latests0%}
+<br>
+<a href="{% url 'InfoTrack:post_detail' pk=latests0.pk %}">
+<div class="container" align = "center">
+      <p>{{ latests0.title }}</p >
+      <p>{{ latests0.context }}</p >
+</div>
+</a>
+{%endblock%}
+{%block latests1%}
+<br>
+<a href="{% url 'InfoTrack:post_detail' pk=latests1.pk %}">
+<div class="container" align = "center">
+      <p>{{ latests1.title }}</p >
+      <p>{{ latests1.context }}</p >
+</div>
+</a>
+
+{%endblock%}
+{%block latests2%}
+<br>
+<a href="{% url 'InfoTrack:post_detail' pk=latests2.pk %}">
+<div class="container" align = "center">
+      <p>{{ latests2.title }}</p >
+      <p>{{ latests2.context }}</p >
+</div>
+</a>
+{%endblock%}
+{%block latests3%}
+<br>
+<a href="{% url 'InfoTrack:post_detail' pk=latests3.pk %}">
+<div class="container" align = "center">
+      <p>{{ latests3.title }}</p >
+      <p>{{ latests3.context }}</p >
+</div>
+</a>
+{%endblock%}
+{%block latests4%}
+<br>
+<a href="{% url 'InfoTrack:post_detail' pk=latests4.pk %}">
+<div class="container" align = "center">
+      <p>{{ latests4.title }}</p >
+      <p>{{ latests4.context }}</p >
+</div>
+</a>
+{%endblock%}
+
+<p>{%block section%}Club Information {%endblock%}</p>
+<h5>{% block post_title1%} {{ posts0.title }} {%endblock%}</h5>
+<small>{% block post_day1%} {{ posts0.time }} {%endblock%}</small>
+<p>{% block post_context1%} {{ posts0.context }} {%endblock%}</p >
+<p>{%block post_user1%}{{ posts0.user.get_full_name }}{%endblock%}</p>
+
+
+<h5>{% block post_title2%} {{ posts1.title }} {%endblock%}</h5>
+<small>{% block post_day2%} {{ posts1.time }} {%endblock%}</small>
+<p>{% block post_context2%} {{ posts1.context }} {%endblock%}</p >
+<p>{%block post_user2%}{{ posts1.user.get_full_name }}{%endblock%}</p>
+
+<h5>{% block post_title3%} {{ posts2.title }} {%endblock%}</h5>
+<small>{% block post_day3%} {{ posts2.time }} {%endblock%}</small>
+<p>{% block post_context3%} {{ posts2.context }} {%endblock%}</p >
+<p>{%block post_user3%}{{ posts2.user.get_full_name }}{%endblock%}</p>
+
+<h5>{% block post_title4%} {{ posts3.title }} {%endblock%}</h5>
+<small>{% block post_day4%} {{ posts3.time }} {%endblock%}</small>
+<p>{% block post_context4%} {{ posts3.context }} {%endblock%}</p >
+<p>{%block post_user4%}{{ posts3.user.get_full_name }}{%endblock%}</p>
+
+<h5>{% block post_title5%} {{ posts4.title }} {%endblock%}</h5>
+<small>{% block post_day5%} {{ posts4.time }} {%endblock%}</small>
+<p>{% block post_context5%} {{ posts4.context }} {%endblock%}</p >
+<p>{%block post_user5%}{{ posts4.user.get_full_name }}{%endblock%}</p>
+
+<h5>{% block post_title6%} {{ posts5.title }} {%endblock%}</h5>
+<small>{% block post_day6%} {{ posts5.time }} {%endblock%}</small>
+<p>{% block post_context6%} {{ posts5.context }} {%endblock%}</p >
+<p>{%block post_user6%}{{ posts5.user.get_full_name }}{%endblock%}</p>

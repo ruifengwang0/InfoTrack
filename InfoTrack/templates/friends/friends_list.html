@@ -1,0 +1,11 @@
+{% extends "base_test.html"%}
+
+{% block keng_1 %}
+<div class="container">
+<p>     This is a test friends_list:
+        {% for friend in friends %}
+<p style="color: black">{{friend.get_full_name }}</p>
+{% endfor %}
+</p>
+</div>
+{% endblock %}

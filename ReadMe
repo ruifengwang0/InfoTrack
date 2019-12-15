@@ -1,0 +1,22 @@
+The friendship functionality app folder:
+https://github.com/revsys/django-friendship
+
+
+We comment out the ShootA-views.py:
+"""
+from django.core.mail import send_mail
+send_mail('InfoTrack:Reset Password', 'Welcome to InfoTrack!', 'compsci326326@gmail.com',
+    ['qzhao@umass.com'], fail_silently=False)
+"""
+
+But in case you want to reset email by sending email you should remove the comment.
+PLEASE use a new registered gmail as sender instead of compsci326326@gmail.com (which is only for our team not for TA grading!)
+When you have the new registered gmail make two changes:
+1. In ShootA-views.py replaced 'compsci326326@gmail.com' with your new registered gamil.
+2. In ShootA-settings.py replaced 
+EMAIL_HOST_USER = 'compsci326326@gmail.com'
+EMAIL_HOST_PASSWORD= 'qwe123456789'
+to your new registered gmail.
+
+
+Single Slide and Presentation Slide are attached on moodle .txt file. Also Royce already sent the copies of links to TA.

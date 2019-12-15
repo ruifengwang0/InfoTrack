@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: Open Sans, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #004480;
+    transform: translate3d(-200px, 0, 0);
+    transition: transform 0.5s ease;
+}
+
+.active-nav nav {
+    transform: translate3d(0, 0, 0);
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 100px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.nav-toggle-btn {
+    display: block;
+    position: absolute;
+    left: 200px;
+    width: 40px;
+    height: 40px;
+}
+
+.nav-btn-block {
+    width: 100%;
+    height: 7.5px;
+    background-color: #004480;
+    transform-origin: 0 50%;
+    transition: transform 1s ease;
+}
+
+.nav-btn-block.middle {
+    margin: 9px 0;
+}
+
+.nav-btn-block.top.active {
+    transform: rotate(55deg);
+}
+
+.nav-btn-block.middle.active {
+    transform: scale(0);
+}
+
+.nav-btn-block.bottom.active {
+    transform: rotate(-55deg);
+}
+
+.fly-in-text {
+    padding-top: 220px;
+    height: 690px;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+.fly-in-text li {
+    display: inline-block;
+    margin-right: 50px;
+    font-family: Open Sans, Arial;
+    font-weight: 300;
+    font-size: 5em;
+    opacity: 1;
+    transition: all 2.5s ease;
+}
+
+
+
+.fly-in-text.hidden li {
+    opacity: 0;
+}
+
+.fly-in-text.hidden li:nth-child(3) {transform: translateX(-200px) translateY(-200px);}
+.fly-in-text.hidden li:nth-child(4) {transform: translateX(20px) translateY(100px);}
+.fly-in-text.hidden li:nth-child(5) {transform: translateX(-150px) translateY(-80px);}
+.fly-in-text.hidden li:nth-child(6) {transform: translateX(10px) translateY(-200px);}
+.fly-in-text.hidden li:nth-child(7) {transform: translateX(-300px) translateY(200px);}
+.fly-in-text.hidden li:nth-child(8) {transform: translateX(20px) translateY(-20px);}
+.fly-in-text.hidden li:nth-child(9) {transform: translateX(30px) translateY(-200px);}
+.fly-in-text.hidden li:nth-child(10) {transform: translateX(100px) translateY(-20px);}
+.fly-in-text.hidden li:nth-child(11) {transform: translateX(100px) translateY(150px);}
+
+.active-nav .fly-in-text {
+    transform: translate3d(200px, 0, 0);
+}
+
+h1 {
+    height: 60px;
+    text-align: right;
+    padding: 0.2em;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 40px;
+    letter-spacing: 0.5px;
+    color: #004480;
+}
+
+footer {
+    text-align: right;
+    padding: 0.5em;
+}

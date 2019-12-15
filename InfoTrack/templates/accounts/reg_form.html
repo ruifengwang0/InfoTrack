@@ -1,0 +1,40 @@
+{% extends 'base_generic.html' %}
+
+{% block keng_1 %}
+<div class="container", style="margin-top:150px;color:black">
+        <form action="{% url 'InfoTrack:register' %}" method="POST" id="register_form">
+                {% csrf_token %}                        
+                <!--<p>Username:<input type="text" name="username"></p>
+                <p>Passowrd:<input type="password" name="password1"></p>
+                <p>Confirm Passowrd:<input type="password" name="password2"></p>                       
+                <p>Email:<input type="email" name="email"></p>                
+                <p>First Name:<input type="text" name="first_name" /></p>
+                <p>Last Name:<input type="text" name="last_name" /></p> 
+                <p>studentID:<input type="number" name="studentID" /></p> 
+                <p>Location:<input type="text" name="location" /></p> 
+                <p>Phone:<input type="number" name="phone" /></p>                 
+                <p>Website:<input type="url" name="website" /></p> 
+                <p>Description:<input type="text" name="description" /></p> 
+                <p>DateBirth:<input type="text" name="location" /></p> 
+                <p>Major:<input type="text" name="major" /></p> 
+                
+                
+
+                <p>Grade:<select name="grade" form="register_form">
+                <option value="FR">Freshmen</option>
+                <option value="SO">Sophomore</option>
+                <option value="JR">Junior</option>
+                <option value="SR">Senior</option>    
+                </select></p>
+                <input type="submit" value="Submit" />-->
+                <div class="container">
+                                <h1>Register</h1>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                </form>        
+</div>
+{% endblock %}
